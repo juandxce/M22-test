@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="CSS/main.css">
+  <title>Ejercicio M22 calendario</title>
+</head>
+<body>
+  <form action="" class="date-form">
+
+    <span class="date-start">Fecha de inicio:</span>
+    <label for="start-month">Mes</label>
+    <select id="start-month">
+      <option value="01">Enero</option>
+      <option value="02">Febrero</option>
+      <option value="03">Marzo</option>
+      <option value="04">Abril</option>
+      <option value="05">Mayo</option>
+      <option value="06">Junio</option>
+      <option value="07">Julio</option>
+      <option value="08">Agosto</option>
+      <option value="09">Septiembre</option>
+      <option value="10">Octubre</option>
+      <option value="11">Novimbre</option>
+      <option value="12">Diciembre</option>
+    </select>
+    <label for="start-year">Año</label>
+    <input id="start-year" type="number" name="year" value="2017">
+
+
+    <span class="date-end">Fecha final:</span>
+    <label for="end-month">Mes</label>
+    <select id="end-month">
+      <option value="01">Enero</option>
+      <option value="02">Febrero</option>
+      <option value="03">Marzo</option>
+      <option value="04">Abril</option>
+      <option value="05">Mayo</option>
+      <option value="06">Junio</option>
+      <option value="07">Julio</option>
+      <option value="08">Agosto</option>
+      <option value="09">Septiembre</option>
+      <option value="10">Octubre</option>
+      <option value="11">Novimbre</option>
+      <option value="12">Diciembre</option>
+    </select>
+    <label for="end-year">Año</label>
+    <input id="end-year" type="number" name="year" value="2017">
+    <br />
+    <br />
+    <label for="columnas">Columnas:</label>
+    <input type="number" name="columns" value="1" min="1" max="10">
+    <br />
+    <br />
+    <input id="submit" type="submit" name="submit" value="Submit">
+
+  </form>
+  <div id="main-calendar-container">
+
+    <div id="calendar-container" class="calendar-container">
+      <div id="calendar-header">
+        <span id="calendar-month-year" class="calendar-month-year"></span>
+      </div>
+      <div id="calendar-dates" class="calendar-dates">
+      </div>
+    </div>
+
+  </div><!--end main-calendar-container -->
+
+
+  <script src="/javascript/main.js" charset="utf-8"></script>
+</body>
+</html>
