@@ -8,68 +8,69 @@
   <title>Ejercicio M22 calendario</title>
 </head>
 <body>
-  <form action="" class="date-form">
+  <div class="container">
+    <form action="" class="date-form">
 
-    <span class="date-start">Fecha de inicio:</span>
-    <label for="start-month">Mes</label>
-    <select id="start-month">
-      <option value="01">Enero</option>
-      <option value="02">Febrero</option>
-      <option value="03">Marzo</option>
-      <option value="04">Abril</option>
-      <option value="05">Mayo</option>
-      <option value="06">Junio</option>
-      <option value="07">Julio</option>
-      <option value="08">Agosto</option>
-      <option value="09">Septiembre</option>
-      <option value="10">Octubre</option>
-      <option value="11">Novimbre</option>
-      <option value="12">Diciembre</option>
-    </select>
-    <label for="start-year">Año</label>
-    <input id="start-year" type="number" name="year" value="2017">
+      <span class="dates">Fecha de inicio:</span>
+      <label for="start-month">Mes</label>
+      <select id="start-month">
+        <option value="01">Enero</option>
+        <option value="02">Febrero</option>
+        <option value="03">Marzo</option>
+        <option value="04">Abril</option>
+        <option value="05">Mayo</option>
+        <option value="06">Junio</option>
+        <option value="07">Julio</option>
+        <option value="08">Agosto</option>
+        <option value="09">Septiembre</option>
+        <option value="10">Octubre</option>
+        <option value="11">Novimbre</option>
+        <option value="12">Diciembre</option>
+      </select>
+      <label for="start-year">Año</label>
+      <input id="start-year" type="number" name="year" value="2017">
 
+      <span class="dates">Fecha final:</span>
+      <label for="end-month">Mes</label>
+      <select id="end-month">
+        <option value="01">Enero</option>
+        <option value="02">Febrero</option>
+        <option value="03">Marzo</option>
+        <option value="04">Abril</option>
+        <option value="05">Mayo</option>
+        <option value="06">Junio</option>
+        <option value="07">Julio</option>
+        <option value="08">Agosto</option>
+        <option value="09">Septiembre</option>
+        <option value="10">Octubre</option>
+        <option value="11">Novimbre</option>
+        <option value="12">Diciembre</option>
+      </select>
+      <label for="end-year">Año</label>
+      <input id="end-year" type="number" name="year" value="2017">
+      <br />
+      <br />
+      <label for="columnas">Columnas:</label>
+      <select id="rows-selected">
+        <option value="01">1</option>
+        <option value="02">2</option>
+        <option value="03">3</option>
+        <option value="04">4</option>
+        <option value="05">5</option>
+        <option value="06">6</option>
+        <option value="07">7</option>
+        <option value="08">8</option>
+        <option value="09">9</option>
+        <option value="10">10</option>
+      </select>
+      <br />
+      <br />
+      <input id="submit" type="submit" name="submit" value="Submit">
 
-    <span class="date-end">Fecha final:</span>
-    <label for="end-month">Mes</label>
-    <select id="end-month">
-      <option value="01">Enero</option>
-      <option value="02">Febrero</option>
-      <option value="03">Marzo</option>
-      <option value="04">Abril</option>
-      <option value="05">Mayo</option>
-      <option value="06">Junio</option>
-      <option value="07">Julio</option>
-      <option value="08">Agosto</option>
-      <option value="09">Septiembre</option>
-      <option value="10">Octubre</option>
-      <option value="11">Novimbre</option>
-      <option value="12">Diciembre</option>
-    </select>
-    <label for="end-year">Año</label>
-    <input id="end-year" type="number" name="year" value="2017">
-    <br />
-    <br />
-    <label for="columnas">Columnas:</label>
-    <select id="rows-selected">
-      <option value="01">1</option>
-      <option value="02">2</option>
-      <option value="03">3</option>
-      <option value="04">4</option>
-      <option value="05">5</option>
-      <option value="06">6</option>
-      <option value="07">7</option>
-      <option value="08">8</option>
-      <option value="09">9</option>
-      <option value="10">10</option>
-    </select>
-    <br />
-    <br />
-    <input id="submit" type="submit" name="submit" value="Submit">
+    </form>
 
-  </form>
-
-  <span id="validation"></span>
+    <span id="validation"></span>
+  </div><!-- end container -->
 
   <div id="main-calendar-container">
   </div><!-- anchor for js -->

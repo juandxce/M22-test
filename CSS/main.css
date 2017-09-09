@@ -4,6 +4,10 @@
   margin: 0;
 }
 
+body{
+  font-family: arial, sans-serif;
+}
+
 #main-calendar-container{
   display: flex;
   justify-content: flex-start;
@@ -17,6 +21,20 @@
   color: red;
 }
 
+.container{
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 25px;
+}
+
+label{
+  padding-left: 10px;
+}
+
+.dates{
+  font-weight: bold;
+  padding-left: 50px;
+}
 
 .calendar-container {
   display: block;
