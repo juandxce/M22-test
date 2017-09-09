@@ -1,26 +1,27 @@
 var passDate = function(e) {
   e.preventDefault();
+  //get the containers and values from index.html
   var startingMonth = document.getElementById('start-month').value;
-  // console.log(startingMonth);
   var startingYear = document.getElementById('start-year').value;
-  // console.log(startingYear);
   var endingMonth = document.getElementById('end-month').value;
-  // console.log(endingMonth);
   var endingYear = document.getElementById('end-year').value;
-  // console.log(endingYear);
   var mainContainer = document.getElementById('main-calendar-container');
-  //append a month container for each month
-  for(i=startingYear; i<=endingYear; i++){
-    //console.log(i);
-    for(j=startingMonth; j<=12; j++){
-      if(j == endingMonth && i == endingYear){
+  var invalidDate = document.getElementById('validation')
+
+  if(startingYear < endingYear || (startingYear == endingYear && startingMonth <= endingMonth)){
+    //append a month container for each month
+    invalidDate.innerHTML = "";
+    for(i=startingYear; i<=endingYear; i++){
+      for(j=startingMonth; j<=12; j++){
+        if(j == endingMonth && i == endingYear){
+          createMonth(j, i);
+          break;
+        }
         createMonth(j, i);
-        break;
       }
-        //console.log(j);
-        createMonth(j, i);
     }
-  }
+  }else{ invalidDate.innerHTML="Por favor introduzca un intervalo válido"}
+
 }
 
 
@@ -142,5 +143,3 @@ function get_calendar(day_no, days) {
   return table;
 
 }
-
-createMonth(05, 2008);
