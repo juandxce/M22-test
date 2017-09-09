@@ -51,24 +51,26 @@
     <br />
     <br />
     <label for="columnas">Columnas:</label>
-    <input type="number" name="columns" value="1" min="1" max="10">
+    <select id="rows-selected">
+      <option value="01">1</option>
+      <option value="02">2</option>
+      <option value="03">3</option>
+      <option value="04">4</option>
+      <option value="05">5</option>
+      <option value="06">6</option>
+      <option value="07">7</option>
+      <option value="08">8</option>
+      <option value="09">9</option>
+      <option value="10">10</option>
+    </select>
     <br />
     <br />
     <input id="submit" type="submit" name="submit" value="Submit">
 
   </form>
+
   <div id="main-calendar-container">
-
-    <div id="calendar-container" class="calendar-container">
-      <div id="calendar-header">
-        <span id="calendar-month-year" class="calendar-month-year"></span>
-      </div>
-      <div id="calendar-dates" class="calendar-dates">
-      </div>
-    </div>
-
-  </div><!--end main-calendar-container -->
-
+  </div><!-- anchor for js -->
 
   <script src="/javascript/main.js" charset="utf-8"></script>
 </body>
