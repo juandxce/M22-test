@@ -1,19 +1,27 @@
 var passDate = function(e) {
   e.preventDefault();
   //get the containers and values from index.html (month and year of the strings)
+  var endingDate = document.getElementById('end-date').value;
+  console.log(endingDate);
+  var initialDate = document.getElementById('start-date').value;
   var startingMonth = parseInt(document.getElementById('start-date').value.substring(0,2));
   var startingYear = parseInt(document.getElementById('start-date').value.substring(3));
   var endingMonth = parseInt(document.getElementById('end-date').value.substring(0,2));
-  console.log(endingMonth);
   var endingYear = parseInt(document.getElementById('end-date').value.substring(3));
-  console.log(endingYear);
 
   var mainContainer = document.getElementById('main-calendar-container');
-  var invalidDate = document.getElementById('validation')
+  var invalidDate = document.getElementById('validation');
+  var maxYear = 9999;//maximum year accepted
 
-  if(startingYear < endingYear || (startingYear == endingYear && startingMonth <= endingMonth) || (0<startingMonth && startingMonth<=12) || 0<endingMonth && endingMonth<=12){
+  if(
+    ((startingYear<endingYear)||(startingYear==endingYear&&startingMonth<=endingMonth)) &&
+    (0<startingMonth&&startingMonth<=12) &&
+    (0<endingMonth&&endingMonth<=12) &&
+    (startingYear<=maxYear && endingYear<=maxYear) &&
+    (initialDate.length==7&&endingDate.length==7)) {
     //append a month container for each month
     invalidDate.innerHTML = "";
+    mainContainer.innerHTML="";//reset mainContainer
     for(var year=startingYear; year<=endingYear; year++){
       for(var month=(year == startingYear)?startingMonth:1; month<=12; month++){
         if(month == endingMonth && year == endingYear){
@@ -21,7 +29,6 @@ var passDate = function(e) {
           break;
         }
         createMonth(month, year);
-        console.log(month + "-" + year );
       }
     }
   }else{ invalidDate.innerHTML="Por favor introduzca un intervalo válido"}
