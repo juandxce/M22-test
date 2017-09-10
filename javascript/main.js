@@ -1,18 +1,20 @@
 var passDate = function(e) {
   e.preventDefault();
   //get the containers and values from index.html (month and year of the strings)
-  var endingDate = document.getElementById('end-date').value;
-  console.log(endingDate);
   var initialDate = document.getElementById('start-date').value;
+  var endingDate = document.getElementById('end-date').value;
+
   var startingMonth = parseInt(document.getElementById('start-date').value.substring(0,2));
   var startingYear = parseInt(document.getElementById('start-date').value.substring(3));
+
   var endingMonth = parseInt(document.getElementById('end-date').value.substring(0,2));
   var endingYear = parseInt(document.getElementById('end-date').value.substring(3));
 
   var mainContainer = document.getElementById('main-calendar-container');
   var invalidDate = document.getElementById('validation');
-  var maxYear = 9999;//maximum year accepted
+  var maxYear = 2100;//maximum year accepted
 
+  //form date validation
   if(
     ((startingYear<endingYear)||(startingYear==endingYear&&startingMonth<=endingMonth)) &&
     (0<startingMonth&&startingMonth<=12) &&
@@ -32,7 +34,6 @@ var passDate = function(e) {
       }
     }
   }else{ invalidDate.innerHTML="Por favor introduzca un intervalo válido"}
-
 }
 
 
