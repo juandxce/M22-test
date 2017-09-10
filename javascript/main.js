@@ -1,23 +1,27 @@
 var passDate = function(e) {
   e.preventDefault();
-  //get the containers and values from index.html
-  var startingMonth = document.getElementById('start-month').value;
-  var startingYear = document.getElementById('start-year').value;
-  var endingMonth = document.getElementById('end-month').value;
-  var endingYear = document.getElementById('end-year').value;
+  //get the containers and values from index.html (month and year of the strings)
+  var startingMonth = parseInt(document.getElementById('start-date').value.substring(0,2));
+  var startingYear = parseInt(document.getElementById('start-date').value.substring(3));
+  var endingMonth = parseInt(document.getElementById('end-date').value.substring(0,2));
+  console.log(endingMonth);
+  var endingYear = parseInt(document.getElementById('end-date').value.substring(3));
+  console.log(endingYear);
+
   var mainContainer = document.getElementById('main-calendar-container');
   var invalidDate = document.getElementById('validation')
 
-  if(startingYear < endingYear || (startingYear == endingYear && startingMonth <= endingMonth)){
+  if(startingYear < endingYear || (startingYear == endingYear && startingMonth <= endingMonth) || (0<startingMonth && startingMonth<=12) || 0<endingMonth && endingMonth<=12){
     //append a month container for each month
     invalidDate.innerHTML = "";
-    for(i=startingYear; i<=endingYear; i++){
-      for(j=startingMonth; j<=12; j++){
-        if(j == endingMonth && i == endingYear){
-          createMonth(j, i);
+    for(var year=startingYear; year<=endingYear; year++){
+      for(var month=(year == startingYear)?startingMonth:1; month<=12; month++){
+        if(month == endingMonth && year == endingYear){
+          createMonth(month, year);
           break;
         }
-        createMonth(j, i);
+        createMonth(month, year);
+        console.log(month + "-" + year );
       }
     }
   }else{ invalidDate.innerHTML="Por favor introduzca un intervalo válido"}
@@ -39,9 +43,7 @@ var createMonth = function(month, year) {
   var month = month-1; //0-11
   var year = year;
   var first_date = month_name[month] + " " + 1 + " " + year;
-  //September 1 2014
   var tmp = new Date(first_date).toDateString();
-  //Mon Sep 01 2014 ...
   var first_day = tmp.substring(0, 3); //Mon
   var day_name = [
     'Sun',
@@ -76,10 +78,7 @@ var createMonth = function(month, year) {
   tempMonth.style.width = Math.floor(100/selectedRows)  + "%";
 
   document.getElementById("main-calendar-container").appendChild(tempMonth);
-  console.log(calendar);
-  console.log(month_name[month] + " " + year);
-
-}
+} //end createMonth
 
 
 
@@ -135,11 +134,8 @@ function get_calendar(day_no, days) {
         count++;
         tr.appendChild(td);
       }
-
     }
     table.appendChild(tr);
   }
-
   return table;
-
 }

@@ -9,45 +9,14 @@
 </head>
 <body>
   <div class="container">
-    <form action="" class="date-form">
+    <form action="form_process.php" method="post" class="date-form">
 
-      <span class="dates">Fecha de inicio:</span>
-      <label for="start-month">Mes</label>
-      <select id="start-month">
-        <option value="01">Enero</option>
-        <option value="02">Febrero</option>
-        <option value="03">Marzo</option>
-        <option value="04">Abril</option>
-        <option value="05">Mayo</option>
-        <option value="06">Junio</option>
-        <option value="07">Julio</option>
-        <option value="08">Agosto</option>
-        <option value="09">Septiembre</option>
-        <option value="10">Octubre</option>
-        <option value="11">Novimbre</option>
-        <option value="12">Diciembre</option>
-      </select>
-      <label for="start-year">Año</label>
-      <input id="start-year" type="number" name="year" value="2017">
+      <label class="dates" for="start-date">Fecha de inicio:</label>
+      <input id="start-date" type="text" name="dateStart" value="09-2014">
 
-      <span class="dates">Fecha final:</span>
-      <label for="end-month">Mes</label>
-      <select id="end-month">
-        <option value="01">Enero</option>
-        <option value="02">Febrero</option>
-        <option value="03">Marzo</option>
-        <option value="04">Abril</option>
-        <option value="05">Mayo</option>
-        <option value="06">Junio</option>
-        <option value="07">Julio</option>
-        <option value="08">Agosto</option>
-        <option value="09">Septiembre</option>
-        <option value="10">Octubre</option>
-        <option value="11">Novimbre</option>
-        <option value="12">Diciembre</option>
-      </select>
-      <label for="end-year">Año</label>
-      <input id="end-year" type="number" name="year" value="2017">
+      <label class="dates" for="end-date">Fecha final:</label>
+      <input id="end-date" type="text" name="dateEnd" value="01-2015">
+
       <br />
       <br />
       <label for="columnas">Columnas:</label>
