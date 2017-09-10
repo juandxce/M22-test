@@ -45,7 +45,6 @@ label{
   height: 240px;
   text-align: center;
   padding: 0 10px;
-  margin: 0 auto;
   font-size: 14px;
   font-family: Arial;
 }
@@ -101,9 +100,7 @@ label{
   height: 240px;
   text-align: center;
   padding: 0 10px;
-  margin: 0 auto;
   font-family: Arial;
-
 }
 
 #submit{
