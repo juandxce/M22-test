@@ -12,12 +12,12 @@ var passDate = function(e) {
 
   var mainContainer = document.getElementById('main-calendar-container');
   var invalidDate = document.getElementById('validation');
-  var maxYear = 2100;//maximum year accepted
 
   //form date validation with simple regex
   if((initialDate.match(/1[0-2]\-[1-2][0,9][0-9]{2}|0[1-9]\-[1-2][0,9][0-9]{2}/gi))&&
     (endingDate.match(/1[0-2]\-[1-2][0,9][0-9]{2}|0[1-9]\-[1-2][0,9][0-9]{2}/gi))&&
-    ((startingYear<endingYear)||(startingYear==endingYear&&startingMonth<=endingMonth))){
+    ((startingYear<endingYear)||(startingYear==endingYear&&startingMonth<=endingMonth))&&
+    (startingYear>1900&&endingYear<2100)){
     //append a month container for each month
     invalidDate.innerHTML = "";
     mainContainer.innerHTML="";//reset mainContainer
@@ -32,14 +32,6 @@ var passDate = function(e) {
     }
   }else{ invalidDate.innerHTML="Por favor introduzca un intervalo válido"}
 }
-
-
-
-
-
-
-var submitForm = document.getElementById('submit');
-submitForm.addEventListener('click', passDate, false);
 
 //function that returns a container with the month on it
 var createMonth = function(month, year) {
@@ -69,11 +61,10 @@ var createMonth = function(month, year) {
   tempDateString.className='calendar-month-year';
   tempDateString.innerHTML = `<span>${month_name[month]} ${year}</span>`;
 
-  //displays the date in a table, kinda like a calendar
+  //displays the date in a table, like a calendar
   var tempDateTable = document.createElement("div");
   tempDateTable.className='calendar-dates';
   tempDateTable.appendChild(calendar);
-  // tempDateTable.style["max-width"] = Math.floor(90/selectedRows)  + "%";
 
   //creates the outer div and appends the table and title to it
   var tempMonth = document.createElement("div");
@@ -85,8 +76,7 @@ var createMonth = function(month, year) {
   document.getElementById("main-calendar-container").appendChild(tempMonth);
 } //end createMonth
 
-
-
+//returns table with a month days
 function get_calendar(day_no, days) {
   var table = document.createElement('table');
   var tr = document.createElement('tr');
@@ -144,3 +134,7 @@ function get_calendar(day_no, days) {
   }
   return table;
 }
+
+
+var submitForm = document.getElementById('submit');
+submitForm.addEventListener('click', passDate, false);
