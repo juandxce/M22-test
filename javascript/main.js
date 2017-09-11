@@ -153,8 +153,8 @@ function sendData(initialDate, endingDate) {
   var today = new Date;
   var date = addZero(today.getDate())+'-'+addZero((today.getMonth())+1)+'-'+addZero(today.getFullYear());
   var time = addZero(today.getHours()) + ":" + addZero(today.getMinutes()) + ":" + addZero(today.getSeconds());
-  var access1 = date + " - " + time + " - ";
-  var access3 = " - " + initialDate + " => " + endingDate;
+  var access1 = "Fecha: "+date + " - Hora: " + time + " - IP: ";
+  var access3 = " - Fecha inicio: " + initialDate + " - Fecha final: " + endingDate;
 
   var requestHolder = new XMLHttpRequest();
     var url = "my_parse_file.php";
