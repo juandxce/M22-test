@@ -14,13 +14,10 @@ var passDate = function(e) {
   var invalidDate = document.getElementById('validation');
   var maxYear = 2100;//maximum year accepted
 
-  //form date validation
-  if(
-    ((startingYear<endingYear)||(startingYear==endingYear&&startingMonth<=endingMonth)) &&
-    (0<startingMonth&&startingMonth<=12) &&
-    (0<endingMonth&&endingMonth<=12) &&
-    (startingYear<=maxYear && endingYear<=maxYear) &&
-    (initialDate.length==7&&endingDate.length==7)) {
+  //form date validation with simple regex
+  if((initialDate.match(/1[0-2]\-[1-2][0,9][0-9]{2}|0[1-9]\-[1-2][0,9][0-9]{2}/gi))&&
+    (endingDate.match(/1[0-2]\-[1-2][0,9][0-9]{2}|0[1-9]\-[1-2][0,9][0-9]{2}/gi))&&
+    ((startingYear<endingYear)||(startingYear==endingYear&&startingMonth<=endingMonth))){
     //append a month container for each month
     invalidDate.innerHTML = "";
     mainContainer.innerHTML="";//reset mainContainer
