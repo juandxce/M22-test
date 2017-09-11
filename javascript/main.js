@@ -30,6 +30,7 @@ var passDate = function(e) {
         createMonth(month, year);
       }
     }
+    sendData(initialDate, endingDate);
   }else{ invalidDate.innerHTML="Por favor introduzca un intervalo válido"}
 }
 
@@ -138,3 +139,37 @@ function get_calendar(day_no, days) {
 
 var submitForm = document.getElementById('submit');
 submitForm.addEventListener('click', passDate, false);
+
+function addZero(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
+
+//save data to acces_log
+function sendData(initialDate, endingDate) {
+
+  var today = new Date;
+  var date = addZero(today.getDate())+'-'+addZero((today.getMonth())+1)+'-'+addZero(today.getFullYear());
+  var time = addZero(today.getHours()) + ":" + addZero(today.getMinutes()) + ":" + addZero(today.getSeconds());
+  var access1 = date + " - " + time + " - ";
+  var access3 = " - " + initialDate + " => " + endingDate;
+
+  var requestHolder = new XMLHttpRequest();
+    var url = "my_parse_file.php";
+    var vars = "access1="+access1+"&access3="+access3;
+
+  requestHolder.open("post", "../process_date.php",true);
+  requestHolder.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  // Access the onreadystatechange event for the XMLHttpRequest object
+    requestHolder.onreadystatechange = function() {
+	    if(requestHolder.readyState == 4 && requestHolder.status == 200) {
+		    var return_data = requestHolder.responseText;
+			document.getElementById("status").innerHTML = return_data;
+	    }
+    }
+  // Send the data to PHP now... and wait for response to update the status div
+  requestHolder.send(vars); // Actually execute the request
+  document.getElementById("status").innerHTML = "processing...";
+}
